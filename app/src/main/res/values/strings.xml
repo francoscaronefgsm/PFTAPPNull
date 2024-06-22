@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">PFT-APPNull</string>
+    <string name="logo_imagen">Logo_imagen</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+
+    <!-- Gestión de usuarios -->
+    <string name="gestion_usuarios">Gestión de usuarios</string>
+    <string name="usuarios_alta">Usuarios a dar de alta</string>
+    <string name="listar_usuarios">Listar Usuarios.</string>
+
+    <!-- Reclamos -->
+    <string name="tipo_de_reclamo">Tipo de Reclamo</string>
+    <string name="fecha_convocatoria">Fecha de la convocatoria</string>
+    <string name="nombre_convocatoria">Nombre de la convocatoria</string>
+    <string name="buscar_reclamos">Buscar reclamos</string>
+    <string name="Titulo">Titulo</string>
+    <string name="detalle">Detalle</string>
+    <string name="semestre">Semestre</string>
+    <string name="docente">Docente</string>
+    <string name="creditos">Créditos</string>
+    <string name="fecha_de_evento">Fecha de evento</string>
+
+    <string name="bienvenido">Bienvenido</string>
+    <string name="buscar_usuarios">Buscar usuarios</string>
+    <string name="tipo_usuario">Seleccione el tipo de Usuario.</string>
+    <string name="primer_nombre">Primer nombre. *</string>
+    <string name="segundo_nombre">Segundo nombre.</string>
+    <string name="primer_apellido">Primer apellido. *</string>
+    <string name="segundo_apellido">Segundo Apellido.</string>
+    <string name="documento">Documento. *</string>
+    <string name="telefono">Teléfono.</string>
+    <string name="departamento">Departamento.</string>
+    <string name="itr">ITR</string>
+    <string name="usuario">Usuario. *</string>
+    <string name="correo_institucional">Correo Institucional. *</string>
+    <string name="contrasenia">Contraseña. *</string>
+    <string name="agregar">Agregar</string>
+    <string name="fecha_de_nacimiento">Fecha de Nacimiento. *</string>
+    <string name="correo_personal">Correo personal.</string>
+    <string name="modificar">Modificar.</string>
+    <string name="modificar_perfil">Modificar perfil</string>
+    <string name="modificar_usuario">Modificar usuario.</string>
+    <string name="seleccionar_opcion">Seleccione una opción:</string>
+    <string name="activar_usuario">Activar usuario</string>
+    <string name="eliminar_usuario">Eliminar usuario</string>
+    <string name="title_activity_vista_principal">VistaPrincipal</string>
+    <string name="agregar_usuario">Agregar usuario</string>
+    <string name="perfil">Perfil</string>
+    <string name="listar">Listar</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+</resources>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.HomeFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                android:elevation="8dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                app:contentPadding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Mis datos"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:id="@+id/nombreTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Nombre" />
+
+                    <TextView
+                        android:id="@+id/secondNameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Segundo Nombre" />
+
+                    <TextView
+                        android:id="@+id/firstSurnameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Primer Apellido" />
+
+                    <TextView
+                        android:id="@+id/secondSurnameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Segundo Apellido" />
+
+                    <TextView
+                        android:id="@+id/documentoTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Documento" />
+
+                    <TextView
+                        android:id="@+id/estadoTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Estado" />
+
+                    <TextView
+                        android:id="@+id/fechaNacimientoTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Fecha de Nacimiento" />
+
+                    <TextView
+                        android:id="@+id/mailTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Email Personal" />
+
+                    <TextView
+                        android:id="@+id/mailInstitucionalTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Email Institucional" />
+
+                    <TextView
+                        android:id="@+id/nombreUsuarioTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Nombre de Usuario" />
+
+                    <TextView
+                        android:id="@+id/telefonoTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textSize="18sp"
+                        android:text="Teléfono" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/logoutButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="33dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_design"
+                android:backgroundTint="@color/white"
+                android:text="Cerrar sesión"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

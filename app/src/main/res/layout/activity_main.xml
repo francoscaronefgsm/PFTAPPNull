@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="40dp"
+        android:layout_marginTop="30dp" >
+
+        <TextView
+            android:id="@+id/loginTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:padding="15dp"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="Inicio de Sesión"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="265dp"
+            android:layout_height="152dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:maxHeight="200dp"
+            android:src="@drawable/null_icon_app" />
+
+        <EditText
+            android:id="@+id/usuarioEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Usuario UTEC"
+            android:inputType="textEmailAddress"
+            android:drawableEnd="@drawable/user_vector"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textColor="@android:color/black"/>
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:drawableEnd="@drawable/password_vector"
+            android:minHeight="48dp"
+            android:padding="12dp"
+            android:textColor="@android:color/black"/>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/button_design"
+            android:backgroundTint="@color/white"
+            android:text="Ingresar"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            android:visibility="visible"
+            tools:visibility="visible" />
+    </LinearLayout>
+</RelativeLayout>

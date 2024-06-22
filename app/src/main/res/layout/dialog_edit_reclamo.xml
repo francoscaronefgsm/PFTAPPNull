@@ -1,0 +1,109 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Titulo del reclamo"
+        />
+    <EditText
+        android:id="@+id/tituloEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha de Convocatoria:"
+        android:layout_marginTop="12dp"/>
+
+    <EditText
+        android:id="@+id/fechaConvocatoriaEditText"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"
+        android:maxLines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre de  VME/Actividad:"
+        android:layout_marginTop="12dp"
+        />
+    <EditText
+        android:id="@+id/nombreActividadEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Semestre:"
+        />
+    <Spinner
+        android:id="@+id/semesterSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Docente a cargo:"
+        android:layout_marginTop="12dp"
+        />
+    <EditText
+        android:id="@+id/docenteEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Creditos"
+        android:layout_marginTop="12dp"
+        />
+    <EditText
+        android:id="@+id/creditosEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tipo:"
+        android:layout_marginTop="12dp"
+        />
+    <Spinner
+        android:id="@+id/tipoActividadSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detalle"
+        android:layout_marginTop="12dp"
+        />
+    <EditText
+        android:id="@+id/detailsEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
+
+
+
+
+    <!-- Define EditTexts para tipo, fecha de emisión, créditos, etc. -->
+
+</LinearLayout>
