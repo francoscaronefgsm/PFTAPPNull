@@ -12,7 +12,7 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ApiService {
-    @POST("api/login")
+    @POST("api/auth/")
     fun login(@Body request: LoginRequest): Call<LoginResponse>
 
     @POST("api/login")

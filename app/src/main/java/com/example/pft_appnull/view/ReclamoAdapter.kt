@@ -29,8 +29,12 @@ class ReclamoAdapter(private val reclamos: List<Reclamo>, private val onReclamoC
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val reclamo = reclamos[position]
         holder.tituloTextView.text = reclamo.title
-        holder.tipoTextView.text = reclamo.eventVme
-        holder.fechaTextView.text = reclamo.created.toString()
+        if(reclamo.activityApe.isNotEmpty()){
+            holder.tipoTextView.text = reclamo.activityApe
+        }else{
+            holder.tipoTextView.text = reclamo.eventVme
+        }
+        holder.fechaTextView.text = reclamo.date
 
         holder.itemView.setOnClickListener {
             onReclamoClicked(reclamo)

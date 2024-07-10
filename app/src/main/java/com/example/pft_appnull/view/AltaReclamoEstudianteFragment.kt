@@ -131,7 +131,7 @@ class AltaReclamoEstudianteFragment : Fragment() {
             // Formatear la fecha como una cadena
             val formattedFechaActual: String = fechaActual.format(formatter)
         val reclamo = Reclamo(
-            id = 7, // El ID debería ser 0 o nulo si es un nuevo reclamo y el servidor asigna el ID
+            id = 0, // El ID debería ser 0 o nulo si es un nuevo reclamo y el servidor asigna el ID
             title = claimTitleEditText.text.toString(),
             description = detailsEditText.text.toString(),
             created = formattedFechaActual,
@@ -142,8 +142,8 @@ class AltaReclamoEstudianteFragment : Fragment() {
             date = selectedDateFormat,
             teacher = professorEditText.text.toString(),
             credits = creditsEditText.text.toString().toInt(),
-            status = "test",
-            userId = 1
+            status = "Ingresado",
+            userId = obtenerIdDelEstudianteLogueado()
         )
 
         RetrofitClient.apiService.altaReclamo(reclamo).enqueue(object : Callback<Void> {
@@ -165,16 +165,21 @@ class AltaReclamoEstudianteFragment : Fragment() {
         // Obtén la cadena JSON del usuarioDTO guardado
         val usuarioJson = preferences.getString("usuarioDTO", null)
         // Comprueba si el usuarioJson no es nulo
-        if (!usuarioJson.isNullOrEmpty()) {
+        return if (!usuarioJson.isNullOrEmpty()) {
             // Usa Gson para deserializar la cadena en un objeto UsuarioDTORest
             val usuarioDTO = Gson().fromJson(usuarioJson, UsuarioDTORest::class.java)
-            Log.e("ListadoReclamos", "ID del usuario logueado: ${usuarioDTO.id}")
-            // Devuelve el idUsuario del objeto UsuarioDTORest
-            return usuarioDTO.id
+            if (usuarioDTO != null) {
+                Log.e("ListadoReclamos", "ID del usuario logueado: ${usuarioDTO.id}")
+                // Devuelve el idUsuario del objeto UsuarioDTORest
+                usuarioDTO.id
+            } else {
+                Log.e("ListadoReclamos", "Error al deserializar usuarioDTO.")
+                -1L
+            }
         } else {
             // Si no hay datos, devuelve -1 o maneja como consideres apropiado
             Log.e("ListadoReclamos", "No se encontraron datos del usuario logueado.")
-            return -1L
+            -1L
         }
     }
 

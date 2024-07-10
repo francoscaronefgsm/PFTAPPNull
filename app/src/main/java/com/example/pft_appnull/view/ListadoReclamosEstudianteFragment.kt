@@ -51,7 +51,7 @@ class ListadoReclamosEstudianteFragment : Fragment() {
             showReclamoDialog(reclamo)
         }
         recyclerView.adapter = adapter
-        loadReclamosFiltrados(1)
+        loadReclamosFiltrados(obtenerIdDelEstudianteLogueado())
         val estadoSpinner: Spinner = view.findViewById(R.id.estadoSpinner)
         val estados = arrayOf("Todos","Ingresado", "En Proceso", "Finalizado")
         val estadoAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, estados)
@@ -59,7 +59,7 @@ class ListadoReclamosEstudianteFragment : Fragment() {
         estadoSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 estadoSeleccionadoId = position.toLong() // Almacena el estado seleccionado
-                loadReclamosFiltrados(1)
+                loadReclamosFiltrados(obtenerIdDelEstudianteLogueado())
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -69,11 +69,24 @@ class ListadoReclamosEstudianteFragment : Fragment() {
     }
 
     private fun loadReclamosFiltrados(estudianteId: Long) {
-        RetrofitClient.apiService.getReclamosPorEstudiante(1).enqueue(object : Callback<List<Reclamo>> {
+        RetrofitClient.apiService.getReclamosPorEstudiante(estudianteId).enqueue(object : Callback<List<Reclamo>> {
             override fun onResponse(call: Call<List<Reclamo>>, response: Response<List<Reclamo>>) {
                 if (response.isSuccessful && response.body() != null) {
                     reclamosList = response.body()!!
-                    adapter = ReclamoAdapter(reclamosList) { reclamo ->
+                    val reclamosFiltrados = if (estadoSeleccionadoId == 0L) {
+                        // Estado "Todos"
+                        reclamosList
+                    } else {
+                        // Filtra por estado seleccionado
+                        val estado = when (estadoSeleccionadoId) {
+                            1L -> "Ingresado"
+                            2L -> "En Proceso"
+                            3L -> "Finalizado"
+                            else -> ""
+                        }
+                        reclamosList.filter { it.status == estado }
+                    }
+                    adapter = ReclamoAdapter(reclamosFiltrados) { reclamo ->
                         showReclamoDialog(reclamo)
                     }
                     recyclerView.adapter = adapter
@@ -125,8 +138,12 @@ class ListadoReclamosEstudianteFragment : Fragment() {
         val detailsEditText = dialogView.findViewById<EditText>(R.id.detailsEditText)
 
         tituloEditText.setText(reclamo.title)
-        fechaConvocatoriaEditText.setText(reclamo.created.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")))
-        nombreActividadEditText.setText(reclamo.activityApe)
+        fechaConvocatoriaEditText.setText(reclamo.date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")))
+        if(reclamo.activityApe.isNotEmpty()){
+            nombreActividadEditText.setText(reclamo.activityApe)
+        }else{
+            nombreActividadEditText.setText(reclamo.eventVme)
+        }
         docenteEditText.setText(reclamo.teacher)
         creditosEditText.setText(reclamo.credits.toString())
         detailsEditText.setText(reclamo.description)
@@ -148,17 +165,19 @@ class ListadoReclamosEstudianteFragment : Fragment() {
         val tipoSpinner = dialogView.findViewById<Spinner>(R.id.tipoActividadSpinner)
 
         // Crear una lista de tipos
-        val listaTipos = listOf("VME", "APE", "Optativa", "Otro")
+        val listaTipos = listOf("VME", "APE")
 
         val tipoAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, listaTipos)
         tipoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         tipoSpinner.adapter = tipoAdapter
 
         // Encuentra el índice del tipo del reclamo en tu lista
-        val tipoIndex = listaTipos.indexOf(reclamo.activityApe)
-        if (tipoIndex >= 0) {
-            tipoSpinner.setSelection(tipoIndex)
+        if(reclamo.activityApe.isNotEmpty()){
+            tipoSpinner.setSelection(1)
+        }else{
+            tipoSpinner.setSelection(0)
         }
+
 
         // Configura el diálogo con botones de acción si lo necesitas
         builder.setPositiveButton("Guardar") { dialog, _ ->
@@ -171,20 +190,27 @@ class ListadoReclamosEstudianteFragment : Fragment() {
             val tipo = tipoSpinner.selectedItem.toString()
             val detalle = detailsEditText.text.toString()
             if (validarCamposReclamo(titulo, nombreActividad, fechaConvocatoria, semestre, docente, creditos, tipo, detalle)) {
+                var actividadApe:String = ""
+                var actividadVME:String = ""
+                if(tipo.equals("VME")){
+                    actividadVME=nombreActividad;
+                }else if (tipo.equals("APE")){
+                    actividadApe=nombreActividad;
+                }
                 val reclamoModificado = Reclamo(
                     id = reclamo.id,
                     title = titulo,
                     description = detalle,
                     created = "",
                     updated = "",
-                    eventVme = "",
-                    activityApe = "",
+                    eventVme = actividadVME,
+                    activityApe = actividadApe,
                     semester = semestre,
-                    date="",
+                    date=fechaConvocatoria,
                     teacher = docente,
                     credits = creditos,
-                    status = "test",
-                    userId = 1L
+                    status = "Ingresado",
+                    userId = obtenerIdDelEstudianteLogueado()
                 )
 
                 RetrofitClient.apiService.modificarReclamo(reclamo.id, reclamoModificado).enqueue(object : Callback<Void> {

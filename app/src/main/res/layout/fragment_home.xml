@@ -37,7 +37,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Mis datos"
+                        android:text="Usuario Logeado"
                         android:textSize="25sp"
                         android:textStyle="bold"
                         android:layout_marginBottom="16dp"/>
@@ -48,15 +48,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:textSize="18sp"
-                        android:text="Nombre" />
-
-                    <TextView
-                        android:id="@+id/secondNameTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:textSize="18sp"
-                        android:text="Segundo Nombre" />
+                        android:text="Nombre:" />
 
                     <TextView
                         android:id="@+id/firstSurnameTextView"
@@ -64,7 +56,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:textSize="18sp"
-                        android:text="Primer Apellido" />
+                        android:text="Apellido 1:" />
 
                     <TextView
                         android:id="@+id/secondSurnameTextView"
@@ -72,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:textSize="18sp"
-                        android:text="Segundo Apellido" />
+                        android:text="Apellido 2:" />
 
                     <TextView
                         android:id="@+id/documentoTextView"
@@ -80,39 +72,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:textSize="18sp"
-                        android:text="Documento" />
-
-                    <TextView
-                        android:id="@+id/estadoTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:textSize="18sp"
-                        android:text="Estado" />
-
-                    <TextView
-                        android:id="@+id/fechaNacimientoTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:textSize="18sp"
-                        android:text="Fecha de Nacimiento" />
-
-                    <TextView
-                        android:id="@+id/mailTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:textSize="18sp"
-                        android:text="Email Personal" />
-
-                    <TextView
-                        android:id="@+id/mailInstitucionalTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:textSize="18sp"
-                        android:text="Email Institucional" />
+                        android:text="Documento:" />
 
                     <TextView
                         android:id="@+id/nombreUsuarioTextView"
@@ -120,15 +80,7 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         android:textSize="18sp"
-                        android:text="Nombre de Usuario" />
-
-                    <TextView
-                        android:id="@+id/telefonoTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:textSize="18sp"
-                        android:text="Teléfono" />
+                        android:text="Username:" />
 
                 </LinearLayout>
 

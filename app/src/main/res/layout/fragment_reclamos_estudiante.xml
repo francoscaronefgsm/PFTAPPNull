@@ -51,6 +51,7 @@
                     android:id="@+id/claimTitleEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Inserte un titulo"
                     android:textSize="20dp" />
 
                 <TextView
@@ -65,6 +66,7 @@
                     android:focusable="false"
                     android:clickable="true"
                     android:textSize="20dp"
+                    android:hint="Seleccione una fecha"
                     android:maxLines="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -79,6 +81,7 @@
                     android:id="@+id/activityNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Inserte un nombre de APE/VME"
                     android:textSize="20dp" />
 
                 <TextView
@@ -102,6 +105,7 @@
                     android:id="@+id/professorEditText"
                     android:textSize="20dp"
                     android:layout_width="match_parent"
+                    android:hint="Inserte un Docente"
                     android:layout_height="wrap_content" />
 
                 <TextView
@@ -115,6 +119,7 @@
                     android:layout_width="match_parent"
                     android:textSize="20dp"
                     android:layout_height="wrap_content"
+                    android:hint="Inserte el/los creditos"
                     android:inputType="number" />
 
                 <Button
@@ -183,6 +188,7 @@
             android:inputType="textMultiLine"
             android:gravity="top|start"
             android:layout_gravity="top"
+            android:hint="Detalle su reclamo"
             android:minLines="12"
             android:scrollbars="vertical" />
             <Button
@@ -193,7 +199,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_design"
                 android:backgroundTint="@color/white"
-                android:text="Siguiente Dos"
+                android:text="Ir al Resumen"
                 android:textColor="@android:color/black"
                 android:textSize="20dp" />
             </LinearLayout>

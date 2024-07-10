@@ -9,6 +9,11 @@ object PreferenceHelper {
     fun defaultPrefs(context: Context): SharedPreferences
             = PreferenceManager.getDefaultSharedPreferences(context)
 
+    fun getToken(context: Context): String? {
+        val preferences = defaultPrefs(context)
+        return preferences.getString("token", null)
+    }
+
     fun customPrefs(context: Context, name: String): SharedPreferences
             = context.getSharedPreferences(name, Context.MODE_PRIVATE)
 
