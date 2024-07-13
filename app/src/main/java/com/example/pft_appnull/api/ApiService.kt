@@ -3,6 +3,7 @@ package com.example.pft_appnull.api
 import com.example.pft_appnull.model.LoginRequest
 import com.example.pft_appnull.model.LoginResponse
 import com.example.pft_appnull.model.Reclamo
+import com.example.pft_appnull.model.UsuarioDTORest
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -21,7 +22,7 @@ interface ApiService {
     @POST("api/claim/")
     fun altaReclamo(@Body nuevoReclamo: Reclamo): Call<Void>
 
-    @GET("api/claims")
+    @GET("api/claim/")
     fun getReclamos(): Call<List<Reclamo>>
 
     @PUT("api/claim/{id}")
@@ -32,5 +33,8 @@ interface ApiService {
 
     @GET("api/claim/user/{id}")
     fun getReclamosPorEstudiante(@Path("id") id: Long): Call<List<Reclamo>>
+
+    @GET("api/claim/studentsWithClaims")
+    fun obtenerEstudiantesConReclamos(): Call<List<UsuarioDTORest>>
 
 }

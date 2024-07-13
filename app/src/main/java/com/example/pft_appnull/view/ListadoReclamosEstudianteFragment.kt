@@ -79,9 +79,9 @@ class ListadoReclamosEstudianteFragment : Fragment() {
                     } else {
                         // Filtra por estado seleccionado
                         val estado = when (estadoSeleccionadoId) {
-                            1L -> "Ingresado"
-                            2L -> "En Proceso"
-                            3L -> "Finalizado"
+                            1L -> "PENDING"
+                            2L -> "IN_PROGRESS"
+                            3L -> "COMPLETED"
                             else -> ""
                         }
                         reclamosList.filter { it.status == estado }
